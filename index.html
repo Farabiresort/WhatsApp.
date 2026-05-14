@@ -1,67 +1,124 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Связь с Farabi Resort</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farabi Resort | Связь</title>
+
   <style>
-    body {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: Arial, sans-serif;
-      text-align: center;
-      background: url('light_blurred_background.jpeg') no-repeat center center fixed;
-      background-size: cover;
-      padding: 50px;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('light_blurred_background.jpeg') no-repeat center center/cover;
+      position: relative;
       color: white;
     }
 
-    h2 {
-      color: white;
-      text-shadow: 1px 1px 5px #000;
+    /* затемнение + blur эффект */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      padding: 30px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 25px;
     }
 
     .btn {
-      display: inline-flex;
+      display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      margin: 10px;
-      padding: 15px 30px;
-      background: #25D366;
-      color: white;
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 12px;
       text-decoration: none;
-      border-radius: 5px;
-      font-size: 17px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s, box-shadow 0.2s;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.2s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
-
-    .btn:nth-of-type(2) { background: #128C7E; }
-    .btn:nth-of-type(3) { background: #075E54; }
 
     .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     }
 
     .btn img {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
+    }
+
+    .n1 { background: #25D366; }
+    .n2 { background: #128C7E; }
+    .n3 { background: #075E54; }
+
+    footer {
+      margin-top: 15px;
+      font-size: 12px;
+      opacity: 0.6;
     }
   </style>
 </head>
+
 <body>
-  <h2>Выберите номер для связи:</h2>
-  <a class="btn" href="https://wa.me/77786153444" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    Номер 1
-  </a>
-  <a class="btn" href="https://wa.me/77761252271" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    Номер 2
-  </a>
-  <a class="btn" href="https://wa.me/77777939378" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    Номер 3
-  </a>
+
+  <div class="card">
+    <h1>Farabi Resort</h1>
+    <p>Выберите номер для связи в WhatsApp</p>
+
+    <a class="btn n1" href="https://wa.me/77786153444" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+      WhatsApp 1
+    </a>
+
+    <a class="btn n2" href="https://wa.me/77761252271" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+      WhatsApp 2
+    </a>
+
+    <a class="btn n3" href="https://wa.me/77777939378" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+      WhatsApp 3
+    </a>
+
+    <footer>© Farabi Resort</footer>
+  </div>
+
 </body>
 </html>
