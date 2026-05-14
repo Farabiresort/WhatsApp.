@@ -3,104 +3,299 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Farabi Resort | Связь</title>
+  <title>Farabi Resort | WhatsApp</title>
+
+  <!-- Шрифт -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
     }
 
-    body {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: url('farabi.jpg') no-repeat center center/cover;
-      position: relative;
-      color: white;
+    body{
+      height:100vh;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:url('farabi.jpg') no-repeat center center/cover;
+      position:relative;
+      color:white;
     }
 
-    /* затемнение + blur эффект */
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(6px);
+    /* затемнение */
+    body::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.45);
+      backdrop-filter:blur(8px);
     }
 
-    .card {
-      position: relative;
-      z-index: 1;
-      width: 90%;
-      max-width: 420px;
-      text-align: center;
-      padding: 30px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.08);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    /* плавное движение фона */
+    body::after{
+      content:"";
+      position:absolute;
+      inset:-20px;
+      background:url('farabi.jpg') no-repeat center center/cover;
+      filter:blur(12px);
+      transform:scale(1.1);
+      z-index:-1;
+      animation:bgMove 18s ease-in-out infinite alternate;
     }
 
-    h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
+    @keyframes bgMove{
+      0%{
+        transform:scale(1.1) translate(0px,0px);
+      }
+
+      100%{
+        transform:scale(1.18) translate(-10px,-10px);
+      }
     }
 
-    p {
-      font-size: 14px;
-      opacity: 0.8;
-      margin-bottom: 25px;
+    .card{
+      position:relative;
+      z-index:2;
+      width:90%;
+      max-width:430px;
+      padding:35px 28px;
+      border-radius:28px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.15);
+      backdrop-filter:blur(20px);
+      box-shadow:
+      0 8px 32px rgba(0,0,0,0.4),
+      inset 0 0 1px rgba(255,255,255,0.4);
+
+      animation:cardAppear 1.2s ease;
     }
 
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 14px;
-      margin: 10px 0;
-      border-radius: 12px;
-      text-decoration: none;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      transition: 0.2s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    @keyframes cardAppear{
+      from{
+        opacity:0;
+        transform:translateY(40px) scale(0.95);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
+    .logo{
+      width:90px;
+      height:90px;
+      border-radius:50%;
+      object-fit:cover;
+      margin-bottom:18px;
+      border:3px solid rgba(255,255,255,0.7);
+      box-shadow:0 0 25px rgba(255,255,255,0.3);
+
+      animation:float 4s ease-in-out infinite;
     }
 
-    .btn img {
-      width: 22px;
-      height: 22px;
+    @keyframes float{
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-6px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
     }
 
-    .n1 { background: #25D366; }
-    .n2 { background: #128C7E; }
-    .n3 { background: #075E54; }
-
-    footer {
-      margin-top: 15px;
-      font-size: 12px;
-      opacity: 0.6;
+    h1{
+      font-size:30px;
+      font-weight:700;
+      margin-bottom:8px;
+      text-align:center;
+      letter-spacing:1px;
     }
+
+    .subtitle{
+      text-align:center;
+      opacity:0.85;
+      font-size:14px;
+      margin-bottom:28px;
+    }
+
+    .btn{
+      position:relative;
+      overflow:hidden;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+
+      width:100%;
+      padding:16px;
+      margin:14px 0;
+
+      border-radius:16px;
+      text-decoration:none;
+      color:white;
+      font-size:16px;
+      font-weight:600;
+
+      transition:0.3s ease;
+
+      box-shadow:
+      0 8px 20px rgba(0,0,0,0.25);
+
+      animation:pulse 3s infinite;
+    }
+
+    .btn:hover{
+      transform:translateY(-4px) scale(1.02);
+      box-shadow:
+      0 12px 25px rgba(0,0,0,0.35);
+    }
+
+    .btn::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-120%;
+      width:80%;
+      height:100%;
+      background:rgba(255,255,255,0.2);
+      transform:skewX(-25deg);
+
+      transition:0.7s;
+    }
+
+    .btn:hover::before{
+      left:140%;
+    }
+
+    @keyframes pulse{
+      0%{
+        transform:scale(1);
+      }
+
+      50%{
+        transform:scale(1.015);
+      }
+
+      100%{
+        transform:scale(1);
+      }
+    }
+
+    .btn img{
+      width:24px;
+      height:24px;
+    }
+
+    .n1{
+      background:linear-gradient(135deg,#25D366,#1ebe5d);
+    }
+
+    .n2{
+      background:linear-gradient(135deg,#128C7E,#0d7267);
+    }
+
+    .n3{
+      background:linear-gradient(135deg,#075E54,#064840);
+    }
+
+    footer{
+      text-align:center;
+      margin-top:20px;
+      font-size:12px;
+      opacity:0.6;
+      letter-spacing:1px;
+    }
+
+    /* частицы */
+    .circle{
+      position:absolute;
+      border-radius:50%;
+      background:rgba(255,255,255,0.08);
+      animation:moveCircle linear infinite;
+    }
+
+    .circle:nth-child(1){
+      width:120px;
+      height:120px;
+      top:10%;
+      left:10%;
+      animation-duration:18s;
+    }
+
+    .circle:nth-child(2){
+      width:180px;
+      height:180px;
+      bottom:8%;
+      right:10%;
+      animation-duration:24s;
+    }
+
+    .circle:nth-child(3){
+      width:70px;
+      height:70px;
+      bottom:25%;
+      left:20%;
+      animation-duration:15s;
+    }
+
+    @keyframes moveCircle{
+      from{
+        transform:translateY(0px) rotate(0deg);
+      }
+
+      to{
+        transform:translateY(-20px) rotate(360deg);
+      }
+    }
+
+    @media(max-width:480px){
+
+      .card{
+        padding:30px 22px;
+      }
+
+      h1{
+        font-size:26px;
+      }
+
+      .btn{
+        font-size:15px;
+        padding:15px;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
+  <!-- частицы -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
   <div class="card">
+
+    <!-- ЛОГО -->
+    <img class="logo" src="farabi.jpg">
+
     <h1>Farabi Resort</h1>
-    <p>Выберите номер для связи в WhatsApp</p>
+
+    <p class="subtitle">
+      Выберите WhatsApp для связи
+    </p>
 
     <a class="btn n1" href="https://wa.me/77786153444" target="_blank">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
@@ -117,7 +312,10 @@
       WhatsApp 3
     </a>
 
-    <footer>© Farabi Resort</footer>
+    <footer>
+      © FARABI RESORT
+    </footer>
+
   </div>
 
 </body>
