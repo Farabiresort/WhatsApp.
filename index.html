@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -22,7 +23,9 @@
       display:flex;
       align-items:center;
       justify-content:center;
+
       background:url('farabi.jpg') no-repeat center center/cover;
+
       position:relative;
       color:white;
     }
@@ -32,104 +35,137 @@
       content:"";
       position:absolute;
       inset:0;
-      background:rgba(0,0,0,0.45);
+
+      background:
+      linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.65)
+      );
+
       backdrop-filter:blur(8px);
     }
 
-    /* плавное движение фона */
+    /* движение фона */
     body::after{
       content:"";
       position:absolute;
       inset:-20px;
+
       background:url('farabi.jpg') no-repeat center center/cover;
-      filter:blur(12px);
+
       transform:scale(1.1);
+      filter:blur(10px);
+
       z-index:-1;
+
       animation:bgMove 18s ease-in-out infinite alternate;
     }
 
     @keyframes bgMove{
+
       0%{
         transform:scale(1.1) translate(0px,0px);
       }
 
       100%{
-        transform:scale(1.18) translate(-10px,-10px);
+        transform:scale(1.16) translate(-12px,-12px);
       }
+
     }
 
+    /* стеклянная карточка */
     .card{
+
       position:relative;
       z-index:2;
+
       width:90%;
       max-width:430px;
-      padding:35px 28px;
-      border-radius:28px;
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.15);
-      backdrop-filter:blur(20px);
-      box-shadow:
-      0 8px 32px rgba(0,0,0,0.4),
-      inset 0 0 1px rgba(255,255,255,0.4);
 
-      animation:cardAppear 1.2s ease;
+      padding:35px 28px;
+
+      border-radius:30px;
+
+      background:rgba(255,255,255,0.08);
+
+      border:1px solid rgba(255,255,255,0.15);
+
+      backdrop-filter:blur(18px);
+
+      box-shadow:
+      0 10px 40px rgba(0,0,0,0.45),
+      inset 0 0 1px rgba(255,255,255,0.3);
+
+      animation:cardAppear 1.1s ease;
     }
 
     @keyframes cardAppear{
+
       from{
         opacity:0;
-        transform:translateY(40px) scale(0.95);
+        transform:translateY(45px) scale(0.96);
       }
 
       to{
         opacity:1;
         transform:translateY(0) scale(1);
       }
+
     }
 
-    .logo{
-      width:90px;
-      height:90px;
-      border-radius:50%;
-      object-fit:cover;
-      margin-bottom:18px;
-      border:3px solid rgba(255,255,255,0.7);
-      box-shadow:0 0 25px rgba(255,255,255,0.3);
+    /* ЛОГО */
+    .main-logo{
 
-      animation:float 4s ease-in-out infinite;
+      width:100%;
+      max-width:320px;
+
+      display:block;
+
+      margin:0 auto 28px;
+
+      filter:
+      brightness(1.1)
+      drop-shadow(0 0 15px rgba(255,255,255,0.18));
+
+      animation:logoFloat 4s ease-in-out infinite;
     }
 
-    @keyframes float{
+    @keyframes logoFloat{
+
       0%{
         transform:translateY(0px);
       }
 
       50%{
-        transform:translateY(-6px);
+        transform:translateY(-5px);
       }
 
       100%{
         transform:translateY(0px);
       }
-    }
 
-    h1{
-      font-size:30px;
-      font-weight:700;
-      margin-bottom:8px;
-      text-align:center;
-      letter-spacing:1px;
     }
 
     .subtitle{
+
       text-align:center;
-      opacity:0.85;
+
       font-size:14px;
-      margin-bottom:28px;
+
+      opacity:0.82;
+
+      margin-bottom:25px;
+
+      letter-spacing:0.4px;
     }
 
+    /* КНОПКИ */
+
     .btn{
+
       position:relative;
+
       overflow:hidden;
 
       display:flex;
@@ -138,47 +174,64 @@
       gap:12px;
 
       width:100%;
+
       padding:16px;
+
       margin:14px 0;
 
-      border-radius:16px;
+      border-radius:18px;
+
       text-decoration:none;
+
       color:white;
+
       font-size:16px;
       font-weight:600;
 
-      transition:0.3s ease;
+      transition:0.35s ease;
 
       box-shadow:
-      0 8px 20px rgba(0,0,0,0.25);
+      0 8px 22px rgba(0,0,0,0.28);
 
       animation:pulse 3s infinite;
     }
 
-    .btn:hover{
-      transform:translateY(-4px) scale(1.02);
-      box-shadow:
-      0 12px 25px rgba(0,0,0,0.35);
-    }
-
+    /* shine effect */
     .btn::before{
+
       content:"";
+
       position:absolute;
+
       top:0;
       left:-120%;
+
       width:80%;
       height:100%;
-      background:rgba(255,255,255,0.2);
+
+      background:rgba(255,255,255,0.18);
+
       transform:skewX(-25deg);
 
-      transition:0.7s;
+      transition:0.8s;
     }
 
     .btn:hover::before{
       left:140%;
     }
 
+    .btn:hover{
+
+      transform:
+      translateY(-4px)
+      scale(1.02);
+
+      box-shadow:
+      0 14px 28px rgba(0,0,0,0.35);
+    }
+
     @keyframes pulse{
+
       0%{
         transform:scale(1);
       }
@@ -190,6 +243,7 @@
       100%{
         transform:scale(1);
       }
+
     }
 
     .btn img{
@@ -202,54 +256,76 @@
     }
 
     .n2{
-      background:linear-gradient(135deg,#128C7E,#0d7267);
+      background:linear-gradient(135deg,#128C7E,#0e7b70);
     }
 
     .n3{
-      background:linear-gradient(135deg,#075E54,#064840);
+      background:linear-gradient(135deg,#075E54,#06463e);
     }
 
     footer{
+
       text-align:center;
-      margin-top:20px;
+
+      margin-top:22px;
+
       font-size:12px;
-      opacity:0.6;
-      letter-spacing:1px;
+
+      opacity:0.55;
+
+      letter-spacing:2px;
     }
 
-    /* частицы */
+    /* декоративные круги */
+
     .circle{
+
       position:absolute;
+
       border-radius:50%;
-      background:rgba(255,255,255,0.08);
+
+      background:rgba(255,255,255,0.05);
+
+      backdrop-filter:blur(5px);
+
       animation:moveCircle linear infinite;
     }
 
     .circle:nth-child(1){
-      width:120px;
-      height:120px;
-      top:10%;
+
+      width:140px;
+      height:140px;
+
+      top:8%;
       left:10%;
+
       animation-duration:18s;
     }
 
     .circle:nth-child(2){
-      width:180px;
-      height:180px;
-      bottom:8%;
-      right:10%;
+
+      width:220px;
+      height:220px;
+
+      bottom:5%;
+      right:8%;
+
       animation-duration:24s;
     }
 
     .circle:nth-child(3){
-      width:70px;
-      height:70px;
-      bottom:25%;
-      left:20%;
-      animation-duration:15s;
+
+      width:90px;
+      height:90px;
+
+      bottom:24%;
+      left:18%;
+
+      animation-duration:14s;
     }
 
     @keyframes moveCircle{
+
       from{
         transform:translateY(0px) rotate(0deg);
       }
@@ -257,7 +333,10 @@
       to{
         transform:translateY(-20px) rotate(360deg);
       }
+
     }
+
+    /* мобильная версия */
 
     @media(max-width:480px){
 
@@ -265,8 +344,8 @@
         padding:30px 22px;
       }
 
-      h1{
-        font-size:26px;
+      .main-logo{
+        max-width:270px;
       }
 
       .btn{
@@ -281,35 +360,48 @@
 
 <body>
 
-  <!-- частицы -->
+  <!-- декоративные круги -->
+
   <div class="circle"></div>
   <div class="circle"></div>
   <div class="circle"></div>
+
+  <!-- КАРТОЧКА -->
 
   <div class="card">
 
     <!-- ЛОГО -->
-    <img class="logo" src="farabi.jpg">
 
-    <h1>Farabi Resort</h1>
+    <img class="main-logo" src="logo.png">
 
     <p class="subtitle">
       Выберите WhatsApp для связи
     </p>
 
+    <!-- КНОПКИ -->
+
     <a class="btn n1" href="https://wa.me/77786153444" target="_blank">
+
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+
       WhatsApp 1
+
     </a>
 
     <a class="btn n2" href="https://wa.me/77761252271" target="_blank">
+
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+
       WhatsApp 2
+
     </a>
 
     <a class="btn n3" href="https://wa.me/77777939378" target="_blank">
+
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+
       WhatsApp 3
+
     </a>
 
     <footer>
